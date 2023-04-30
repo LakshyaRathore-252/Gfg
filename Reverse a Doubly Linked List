@@ -1,0 +1,29 @@
+
+void reverse(Node *&head, Node * curr, Node *prev)
+{
+    if( curr == NULL)
+        {
+            head = prev ;
+            return ;
+        }
+            
+        
+        //  1 Case Solve krna hai
+         Node* forward = curr->next;
+         curr->next = prev;
+         curr->prev = forward;
+
+         reverse(head , forward , curr);
+}
+Node* reverseDLL(Node * head)
+{
+      Node * prev = NULL;
+      Node * curr = head;
+      
+      reverse(head , curr , prev);
+      return head;
+}
+
+
+Time Complexity :O(n)
+Space Complexity:O(1)
