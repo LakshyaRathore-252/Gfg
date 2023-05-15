@@ -25,3 +25,34 @@ queue<int> rev(queue<int> q)
 
 //Time Complexity : O(N)
 // Space Complexity : O(N)
+
+
+// ========================================================= Recurssion Approach =========================================================================================
+
+//function Template for C++
+
+//Function to reverse the queue.
+void reverse(queue<int> &q){
+    //base case
+    if(q.empty()){
+        return;
+    }
+    
+    int num = q.front();
+    q.pop();
+    // recursive call kr do
+    reverse(q);
+    
+    q.push(num);
+}
+queue<int> rev(queue<int> q)
+{
+
+    reverse(q);
+    return q;
+    
+}
+
+
+// Time Complexity : O(N)
+// Space Complexity : O(1)
